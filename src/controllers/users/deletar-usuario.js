@@ -1,4 +1,4 @@
-const User = require('../models/user-model');
+const User = require('../../models/user-model');
 class DeletarUsuarioController {
   async handle(req) {
     const { id } = req.params;
