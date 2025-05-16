@@ -1,18 +1,12 @@
-const Sala = require("../../models/salas-model")
+const Agendamento = require('../../models/agendamentos-models');
 
-class DeletarSalaController {
+class DeletarAgendamentoController {
     async handle(req) {
       const { id } = req.params;
       try {
-        const sala = await Sala.findByPk(id);
-  
-        if (!sala) {
-          return {
-            statusCode: 404,
-            body: { error: 'Sala não encontrado' },
-          };
-        }
-        await sala.destroy();
+        const agendamento = await Agendamento.findByPk(id);
+
+        await agendamento.destroy();
         return {
           statusCode: 204,
           body: {},

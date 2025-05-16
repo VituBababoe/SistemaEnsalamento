@@ -3,9 +3,9 @@ const Sala = require('../../models/salas-model')
 class ListarSalaController {
     async handle(req) {
       try {
-        const SalaId = req.params?.id;
-        const sala = await Sala.findByPk(SalaIdId);
-        if (!sala && SalaId) {
+        const salaId = req.params?.id;
+        const sala = await Sala.findByPk(salaId);
+        if (!sala && salaId) {
           return {
             statusCode: 404,
             body: { error: 'Sala não encontrado' },

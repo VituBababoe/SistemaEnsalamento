@@ -1,8 +1,10 @@
 const User = require('../models/user-model');
+const Professor = require('../../models/professor-model');
+const Coordenacao = require('../../models/coordenacao-model');
 class EditarUsuarioController {
   async handle(req) {
     const { id } = req.params;
-    const { nome, email, senha } = req.body;
+    const { nome, email, senha, telefone, cpf } = req.body;
     try {
       const usuario = await User.findByPk(id);
       if (!usuario) {
@@ -15,6 +17,8 @@ class EditarUsuarioController {
         nome,
         email,
         senha,
+        telefone,
+        cpf,
       });
       return {
         statusCode: 200,

@@ -1,4 +1,6 @@
 const User = require('../../models/user-model');
+const Professor = require('../../models/professor-model');
+const Coordenacao = require('../../models/coordenacao-model');
 const bcrypt = require('bcrypt');
 class CriarUsuarioController {
   /**
@@ -7,7 +9,7 @@ class CriarUsuarioController {
    */
   async handle(httpRequest) {
     try {
-      const { nome, email, senha } = httpRequest.body;
+      const { nome, email, senha, telefone, cpf} = httpRequest.body;
 
       const salt = 10;
 
